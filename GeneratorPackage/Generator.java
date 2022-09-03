@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Generator {
     public Alphabet alphabet;
+	
     public static Scanner keyboard;
 
     public Generator(Scanner scanner) {
@@ -14,13 +15,13 @@ public class Generator {
     }
 
     public void mainLoop() {
-        System.out.println("Welcome to Ziz Password Services :)");
+        System.out.println("Welcome to Password Generator Services :)");
         printMenu();
 
         String userOption = "-1";
         try{
-        while (!userOption.equals("4")) {
-
+       // while (!userOption.equals("4")) {
+        	
             userOption = keyboard.next();
 
             switch (userOption) {
@@ -45,7 +46,7 @@ public class Generator {
                     printMenu();
                     break;
             }
-        }
+      //  }
     }catch(Exception e)
     {
         System.out.println("Exception found" + e);
@@ -149,19 +150,29 @@ public class Generator {
         System.out.println("You have entered something incorrect let's go over it again \n");
     }
 
+  
     private void checkPassword() {
-        String input;
-        final Scanner in = new Scanner(System.in);
+    	try {
+    		String input;
+            final Scanner in = new Scanner(System.in);
 
-        System.out.print("\nEnter your password:");
-        input = in.nextLine();
+            System.out.print("\nEnter your password:");
+            input = in.nextLine();
 
-        final Password p = new Password(input);
+            final Password p = new Password(input);
 
-        System.out.println(p.calculateScore());
+            System.out.println(p.calculateScore());
+          in.reset();   
+         in.close();
+    	}catch(Exception e)
+    	{
+    		System.out.println("Exception Found "+e);
+    	}
+    		
+    	}
+        
+  
 
-        in.close();
-    }
 
     private void printMenu() {
         System.out.println();
@@ -170,7 +181,7 @@ public class Generator {
         System.out.println("Enter 3 - Useful Information");
         System.out.println("Enter 4 - Quit");
         System.out.print("Choice:");
-    }
+  }
 
     private void printQuitMessage() {
         System.out.println("Closing the program bye bye!");
