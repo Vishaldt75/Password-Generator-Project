@@ -20,7 +20,7 @@ public class Generator {
 
         String userOption = "-1";
         try{
-       // while (!userOption.equals("4")) {
+       while (!userOption.equals("4")) {
         	
             userOption = keyboard.next();
 
@@ -46,7 +46,7 @@ public class Generator {
                     printMenu();
                     break;
             }
-      //  }
+       }
     }catch(Exception e)
     {
         System.out.println("Exception found" + e);
